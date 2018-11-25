@@ -7,8 +7,7 @@ class Box<E extends Fruit> {
     private String typeOfBox;
 
     Box(String typeOfBox) {
-        int initialCapacity = 10;
-        this.arrayList = new ArrayList<>(initialCapacity);
+        this.arrayList = new ArrayList<>(10);
         this.typeOfBox = typeOfBox;
     }
 

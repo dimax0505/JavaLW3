@@ -2,7 +2,7 @@ package java3.lesson1Fruit;
 
 import java.io.Serializable;
 
-class Fruit implements Serializable {
+class Fruit {
    String typeOfFruit;
    float weight;
 
