@@ -48,7 +48,7 @@ public class MainDB {
     private static void makeGoodsArray(int size) {
         goods = new Goods[size];
         for (int i=0; i<size; i++){
-            goods[i] = new Goods(i,101+i,"good"+i,1+i);
+            goods[i] = new Goods(i,101+i,"товар"+(i+1),1.5+i);
         }
     }
 

@@ -6,16 +6,18 @@ public class Goods {
     private String title;
     private double price;
 
-    Goods(int id, int prodid, String title, double price) {
+    public Goods(int id, int prodid, String title, double price) {
         this.id = id;
         this.prodid = prodid;
         this.title = title;
         this.price = price;
     }
 
+
+
     @Override
     public String toString() {
-        return String.format("Товар [id=%d, наименование-%s, цена-%d]",prodid,title,price);
+        return String.format("Товар [id=%d, prodID=%s, наименование-%s, цена-%s]",id,String.valueOf(prodid),title,String.valueOf(price));
     }
 
     public int getId() {
