@@ -8,7 +8,7 @@ import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 
 
 public class MainDB {
-    private static int size = 10;
+    private static int size = 10000;
     private static Goods[] goods;
     private static String nameTable = "goods";
 
