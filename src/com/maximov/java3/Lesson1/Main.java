@@ -10,10 +10,9 @@ public class Main {
     private static final String FILE_TXT = "fileTxt.txt";
 
 
-    public static void main(String[] args)throws IOException {
+    public static void main(String[] args) throws IOException {
         SequenceInputStream seq = null;
-     //   File fileByte = new File(FILE_BYTE_TXT);
-
+        //   File fileByte = new File(FILE_BYTE_TXT);
 
         makeFileByte(50, FILE_BYTE_TXT); //делаем файл 50 байт
         System.out.println(Arrays.toString(readFileByte(FILE_BYTE_TXT))); //читаем из сделанного ранее файла все байты и выводим в консоль
@@ -26,17 +25,13 @@ public class Main {
         System.out.println(Arrays.toString(readFileByte(FILE_COMBINE)));//выводим собранный файл в консоль
 
         makeFileTxt(FILE_TXT);//создаем текстовый файл 15 Мб
-
-
-
-
     }
 
     private static void makeFileTxt(String fileName) {
         try (FileOutputStream out = new FileOutputStream(fileName)) {
             //char [] ch = new char[100];
-for (int i=0; i<15000000; i++)
-            out.write(randomACSIICharacter());
+            for (int i = 0; i < 15000000; i++)
+                out.write(randomACSIICharacter());
         } catch (IOException e) {
             e.getStackTrace();
         }
@@ -66,7 +61,7 @@ for (int i=0; i<15000000; i++)
     private static byte[] readFileByte(String fileName) {
         try (FileInputStream in = new FileInputStream(fileName)) {
             byte[] bytes = new byte[in.available()];
-            System.out.printf("прочитали %d байт\n",in.read(bytes));
+            System.out.printf("прочитали %d байт\n", in.read(bytes));
             return (bytes);
         } catch (IOException e) {
             e.getStackTrace();
@@ -93,6 +88,5 @@ for (int i=0; i<15000000; i++)
     public static char randomACSIICharacter() {
         Random r = new Random();
         return (char) (48 + r.nextInt(47));
-
     }
 }
