@@ -14,7 +14,7 @@ public class Reader {
     private static int listSyze = 1800; //количество символов на странице
 
     public static void main(String[] args) {
-        RequestOfNumber();
+        requestOfNumber();
         long time = System.currentTimeMillis();
         randomAccess(number, FILE_TXT);
         time = (System.currentTimeMillis() - time);
@@ -22,7 +22,7 @@ public class Reader {
 
     }
 
-    private static void RequestOfNumber() {
+    private static void requestOfNumber() {
         Scanner sc = new Scanner(System.in);
         do {
             System.out.println("Введите номер страницы: ");

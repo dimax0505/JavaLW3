@@ -11,7 +11,7 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        SequenceInputStream seq = null;
+        // SequenceInputStream seq = null;
         //   File fileByte = new File(FILE_BYTE_TXT);
 
         makeFileByte(50, FILE_BYTE_TXT); //делаем файл 50 байт
@@ -20,7 +20,7 @@ public class Main {
             makeFileByte(100, aFILE_BYTE_TXT_FIVE); //делаем пять файлов по 100 байт
             System.out.println(Arrays.toString(readFileByte(aFILE_BYTE_TXT_FIVE)));//и выводим их поочереди в кончоль
         }
-        combineFile(seq);//собираем пять файлов в один
+        combineFile();//собираем пять файлов в один
 
         System.out.println(Arrays.toString(readFileByte(FILE_COMBINE)));//выводим собранный файл в консоль
 
@@ -37,8 +37,9 @@ public class Main {
         }
     }
 
-    private static void combineFile(SequenceInputStream seq) throws IOException {
+    private static void combineFile() throws IOException {
         ArrayList<InputStream> al = new ArrayList<>();
+        SequenceInputStream seq = null;
         try {
             for (String aFILE_BYTE_TXT_FIVE : FILE_BYTE_TXT_FIVE) {
                 FileInputStream input = new FileInputStream(aFILE_BYTE_TXT_FIVE);
@@ -54,6 +55,7 @@ public class Main {
         } catch (IOException e) {
             e.getStackTrace();
         } finally {
+            assert seq != null;
             seq.close();
         }
     }
