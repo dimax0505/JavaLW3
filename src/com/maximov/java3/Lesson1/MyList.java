@@ -6,7 +6,7 @@ import java.io.*;
 public class MyList {
     char print = 0;
     char previousprint = 0;
-    BufferedWriter bw=null;
+    BufferedWriter bw = null;
 
 
     public synchronized void print(char print) {
@@ -27,7 +27,7 @@ public class MyList {
 
     public synchronized void makeFileTxt(String fileName, LineWriterInFile lineWriterInFile) {
 
-        while (lineWriterInFile.getLock()){
+        while (lineWriterInFile.getLock()) {
             try {
                 wait();
                 lineWriterInFile.setLock(false);
@@ -35,13 +35,12 @@ public class MyList {
                 e.printStackTrace();
             }
         }
-            try  {
-                bw = new BufferedWriter(new FileWriter(fileName, true));
-                   bw.write(Thread.currentThread().getName() + "\n");
-                   bw.close();
-            } catch(IOException e){
-                e.printStackTrace();
-            }
-         //   notifyAll();
+        try {
+            bw = new BufferedWriter(new FileWriter(fileName, true));
+            bw.write(Thread.currentThread().getName() + "\n");
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

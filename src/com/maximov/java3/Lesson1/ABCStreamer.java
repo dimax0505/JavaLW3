@@ -4,7 +4,7 @@ package com.maximov.java3.Lesson1;
 
 
 public class ABCStreamer {
-    private static final String FILE_BYTE_TXT = "fileString.txt";
+
 
     public static void main(String[] args) {
         MyList myList = new MyList();
